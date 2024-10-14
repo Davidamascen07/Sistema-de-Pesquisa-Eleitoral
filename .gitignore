@@ -1,0 +1,30 @@
+# Arquivos do ambiente virtual Python
+venv/
+ENV/
+env/
+*.pyc
+*.pyo
+__pycache__/
+
+# Arquivos de configuração locais
+*.env
+
+# Configurações de IDEs/Editor
+.vscode/
+.idea/
+
+# Logs e arquivos temporários
+*.log
+*.sqlite3
+
+# Ignora arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de build
+*.egg-info/
+dist/
+build/
+
+# Arquivos de cache
+.cache/
