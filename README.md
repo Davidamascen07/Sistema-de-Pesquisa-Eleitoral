@@ -23,17 +23,20 @@ Siga as instruções abaixo para baixar e rodar o projeto localmente.
 
 ```bash
 git clone https://github.com/Davidamascen07/Sistema-de-Pesquisa-Eleitoral.git
+````
 
-2. Crie e ative um ambiente virtual (opcional, mas recomendado):
+```2. Crie e ative um ambiente virtual (opcional, mas recomendado):
 python -m venv venv
 venv\Scripts\activate
-
-3. Instale as dependências:
+````
+```3. Instale as dependências:
 No terminal, instale as dependências do Flask rodando o seguinte comando:
 pip install Flask
+````
 
-4. Inicie o servidor Flask:
+```4. Inicie o servidor Flask:
 Após instalar as dependências, inicie o servidor Flask com o comando:
 python app.py
+````
 
 
