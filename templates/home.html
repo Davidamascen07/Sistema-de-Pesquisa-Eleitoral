@@ -53,18 +53,24 @@
             <h2>Candidatos</h2>
             <div class="box-cards">
                 <div class="card">
-                    <img class="img-card" src="https://www.example.com/path/to/image.jpg">
-                    <h4>Nome do candidato</h4>
+                    <div class="img-container">
+                        <img class="img-card" src="{{ url_for('static', filename='img/candidato1.jpg') }}" alt="Candidato 1">
+                    </div>
+                    <h4>Marcelo Almeida</h4>
                     <p>Votos</p>
                 </div>
                 <div class="card">
-                    <img class="img-card" src="https://www.example.com/path/to/image2.jpg">
-                    <h4>Nome do candidato</h4>
+                    <div class="img-container">
+                        <img class="img-card" src="{{ url_for('static', filename='img/candidato2.jpg') }}" alt="Candidato 2">
+                    </div>
+                    <h4>Alex Ferreira</h4>
                     <p>Votos</p>
                 </div>
                 <div class="card">
-                    <img class="img-card" src="https://www.example.com/path/to/image3.jpg">
-                    <h4>Nome do candidato</h4>
+                    <div class="img-container">
+                        <img class="img-card" src="{{ url_for('static', filename='img/candidato3.jpg') }}" alt="Candidato 3">
+                    </div>
+                    <h4>Wilsom Pereira</h4>
                     <p>Votos</p>
                 </div>
             </div>

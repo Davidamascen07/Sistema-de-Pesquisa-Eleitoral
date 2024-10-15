@@ -30,7 +30,7 @@ def login():
     cpf = request.form.get('cpf')
     
     # Simples validação de CPF (pode ser melhorada)
-    if len(cpf) != 11 or not cpf.isdigit():
+    if len(cpf) != 14:
         return jsonify({'status': 'erro', 'mensagem': 'CPF inválido!'})
 
     # Verifica se o CPF já votou

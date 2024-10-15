@@ -33,7 +33,7 @@ $(document).ready(function () {
         var cpf = $('#cpf').val();
 
         // Validação básica do CPF (verifica se tem 11 dígitos)
-        if (cpf.length !== 11) {
+        if (cpf.length !== 14) {
             $('#mensagem').text('CPF inválido. Insira 11 dígitos.');
             return;
         }
