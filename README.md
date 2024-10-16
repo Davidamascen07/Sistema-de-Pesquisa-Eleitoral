@@ -42,4 +42,4 @@ Após instalar as dependências, inicie o servidor Flask com o comando:
 python app.py
 ````
 
-
+a

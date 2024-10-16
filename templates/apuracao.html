@@ -7,10 +7,12 @@
     <title>Apuração de Votos</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/apuracao.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/modal.css') }}">
+
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-apuracao">
         <h1>Apuração Final</h1>
         <div id="resultados">
             <p>Opção 1: {{ resultados['opcao1'] }}</p>

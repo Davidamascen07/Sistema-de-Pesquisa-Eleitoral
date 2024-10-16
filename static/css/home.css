@@ -92,7 +92,8 @@ section {
 
 .img-container {
     width: 100%;
-    height: 300px; /* Ajuste conforme o necessário */
+    height: 300px;
+    /* Ajuste conforme o necessário */
     overflow: hidden;
     border-radius: 50px;
 }
@@ -103,7 +104,8 @@ section {
     object-fit: cover;
 }
 
-.card h4, .card p {
+.card h4,
+.card p {
     margin-top: 10px;
     color: black;
 }
@@ -125,3 +127,87 @@ footer {
     box-shadow: 0px 2px 8px 0px #000;
     margin-top: 5%;
 }
+
+.alert {
+    padding: 15px;
+    background-color: #4CAF50;
+    /* Verde para sucesso */
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+p {
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger {
+    display: none;
+}
+
+
+
+@media (max-width: 750px) {
+
+    /* Exibir os cards em coluna */
+    .box-cards {
+        flex-direction: column;
+        /* Muda a direção para coluna */
+        align-items: center;
+        /* Alinha os itens ao centro */
+    }
+
+    .card {
+        width: 90%;
+        /* Aumenta a largura do card para se ajustar à tela */
+        margin: 10px 0;
+        /* Margem vertical para espaçamento entre os cards */
+    }
+
+    header nav ul {
+        display: none;
+        /* Esconde o menu de navegação em telas menores */
+        flex-direction: column;
+        /* Organiza o menu verticalmente */
+        background-color: grey;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .hamburger {
+        display: block;
+        /* Exibe o ícone de hambúrguer em telas menores */
+        cursor: pointer;
+        font-size: 30px;
+    }
+
+    header nav ul.show {
+        display: flex;
+        /* Mostra o menu quando o hambúrguer é clicado */
+    }
+
+    footer {
+        background-color: grey;
+        bottom: 0;
+        left: 0;
+        position: relative;
+        /* Altera de fixed para relative */
+        width: 100%;
+        padding: 1%;
+        color: black;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        font-size: 80%;
+        box-shadow: 0px 2px 8px 0px #000;
+        margin-top: 5%;
+        margin-top: auto;
+        /* Garante que o footer fique ao final do conteúdo */
+    }
+}
+

@@ -61,39 +61,39 @@ $(document).ready(function () {
             data: JSON.stringify({ opcao: opcao }),
             success: function (response) {
                 if (response.status === 'sucesso') {
-                    $('#mensagem').text('Voto registrado com sucesso!');
-                    atualizarResultados();  // Atualiza os resultados
-                    $('#opcoes').hide();  // Esconde as opções após o voto
+                    $('#mensagem').text(response.mensagem);
 
-                    // Exibe o botão de voltar ao home
-                    $('#btn-home').show();  // Exibe o botão
+                    if (response.mensagem.includes('A votação foi encerrada automaticamente')) {
+                        // Redireciona ou exibe uma mensagem indicando o encerramento
+                        alert('A votação foi encerrada automaticamente.');
+                        window.location.href = '/apuracao';  // Redireciona para a apuração ou home
+                    }
                 } else {
-                    $('#mensagem').text(response.mensagem);  // Mostra erro, se houver
+                    $('#mensagem').text(response.mensagem);  // Exibe erro, se houver
                 }
             }
         });
     });
-
-    // Função para fechar o modal e recarregar a página ao clicar no botão "Voltar ao Home"
-    $('#btn-home').on('click', function () {
-        // Fecha o modal
-        $('#modal-votacao').hide();  
-        
-        // Adiciona um pequeno atraso para garantir que o modal seja fechado completamente antes de redirecionar
-        setTimeout(function() {
-            window.location.href = '/';  // Redireciona para o Home
-        }, 300);  // Aguarda 300ms antes de redirecionar
-    });
-
     // Função para atualizar os resultados
     function atualizarResultados() {
         $.get('/resultados', function (data) {
-            $('#res-opcao1').text(data.opcao1);
-            $('#res-opcao2').text(data.opcao2);
-            $('#res-opcao3').text(data.opcao3);
+            if (data.message) {
+                console.log(data.message);  // A votação ainda não foi encerrada
+            } else {
+                $('#res-opcao1').text(data.opcao1 + ' votos');
+                $('#res-opcao2').text(data.opcao2 + ' votos');
+                $('#res-opcao3').text(data.opcao3 + ' votos');
+            }
         });
     }
 
     // Atualiza os resultados ao carregar a página
     atualizarResultados();
+
+    // Abrir/fechar o menu de navegação ao clicar no hambúrguer
+    $('.hamburger').click(function () {
+        $('nav ul').toggleClass('show');
+    });
 });
+
+

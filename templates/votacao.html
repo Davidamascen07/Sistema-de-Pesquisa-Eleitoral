@@ -20,9 +20,9 @@
         </div>
 
         <div id="opcoes" style="display: none;">
-            <button class="opcao" data-opcao="opcao1">Opção 1</button>
-            <button class="opcao" data-opcao="opcao2">Opção 2</button>
-            <button class="opcao" data-opcao="opcao3">Opção 3</button>
+            <button class="opcao" data-opcao="opcao1">Marcelo Almeida</button>
+            <button class="opcao" data-opcao="opcao2">Alex Ferreira</button>
+            <button class="opcao" data-opcao="opcao3">Wilsom Pereira</button>
         </div>
 
         <p id="mensagem"></p>
@@ -31,15 +31,8 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='/js/script.js') }}"></script>
-    <script>
-        $('#cpf').on('input', function() {
-            let cpf = $(this).val().replace(/\D/g, '');
-            if (cpf.length > 3) cpf = cpf.slice(0, 3) + '.' + cpf.slice(3);
-            if (cpf.length > 7) cpf = cpf.slice(0, 7) + '.' + cpf.slice(7);
-            if (cpf.length > 11) cpf = cpf.slice(0, 11) + '-' + cpf.slice(11);
-            $(this).val(cpf);
-        });
-    </script>
+    <script src="{{ url_for('static', filename='/js/votacao.js') }}"></script>
+
 </body>
 
 </html>

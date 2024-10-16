@@ -66,3 +66,16 @@ button.opcao:hover {
     background-color: #0056b3;
 }
 
+p {
+    transition: all 0.3s ease-in-out;
+}
+
+.alert {
+    padding: 15px;
+    background-color: #4CAF50; /* Verde para sucesso */
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
