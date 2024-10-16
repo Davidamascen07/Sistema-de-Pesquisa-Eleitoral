@@ -1,8 +1,8 @@
 from flask import Flask, render_template, jsonify, request, session, redirect, url_for
-import re
 
 app = Flask(__name__, static_folder='static')
 app.secret_key = 'chave_super_secreta'  # Necessário para o uso de sessões
+
 
 # Armazenando os votos e CPFs que já votaram
 opcoes_votacao = {
@@ -12,30 +12,6 @@ opcoes_votacao = {
 }
 cpfs_que_votaram = set()  # Armazenar CPFs dos usuários que já votaram
 votacao_encerrada = False  # Controlar o status da votação
-
-
-# Função para validar o CPF (backend)
-def validar_cpf(cpf):
-    # Remove caracteres não numéricos
-    cpf = re.sub(r'\D', '', cpf)
-
-    # Verifica se o CPF tem 11 dígitos
-    if len(cpf) != 11:
-        return False
-
-    # Verifica se todos os números são iguais
-    if cpf == cpf[0] * len(cpf):
-        return False
-
-    # Cálculo dos dígitos verificadores
-    soma = sum(int(cpf[i]) * (10 - i) for i in range(9))
-    primeiro_digito = (soma * 10 % 11) if (soma * 10 % 11) < 10 else 0
-
-    soma = sum(int(cpf[i]) * (11 - i) for i in range(10))
-    segundo_digito = (soma * 10 % 11) if (soma * 10 % 11) < 10 else 0
-
-    # Verifica os dígitos verificadores
-    return cpf[-2:] == f"{primeiro_digito}{segundo_digito}"
 
 # Página principal (home)
 @app.route('/')
@@ -53,9 +29,9 @@ def votacao():
 @app.route('/login', methods=['POST'])
 def login():
     cpf = request.form.get('cpf')
-
-    # Valida o formato e o CPF usando a função do backend
-    if not validar_cpf(cpf):
+    
+    # Simples validação de CPF (pode ser melhorada)
+    if len(cpf) != 14:  # Exemplo: CPF com máscara "000.000.000-00"
         return jsonify({'status': 'erro', 'mensagem': 'CPF inválido!'})
 
     # Verifica se o CPF já votou
@@ -95,6 +71,7 @@ def votar():
     
     return jsonify({'status': 'erro', 'mensagem': 'Opção inválida.'})
 
+
 # Rota para encerrar a votação (admin)
 @app.route('/encerrar_votacao')
 def encerrar_votacao():
@@ -115,6 +92,7 @@ def resultados_votacao():
     else:
         return jsonify({'message': 'A votação ainda não foi encerrada.'})
 
+
 @app.route('/progresso_votacao')
 def progresso_votacao():
     total_votantes = 15
@@ -124,4 +102,4 @@ def progresso_votacao():
 
 # Inicia o servidor
 if __name__ == '__main__':
-    app.run(debug=True)
+    pass  # Remova a chamada app.run()
